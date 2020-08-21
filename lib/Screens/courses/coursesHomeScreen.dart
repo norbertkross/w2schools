@@ -19,8 +19,6 @@ class _CoursesHomeScreenState extends State<CoursesHomeScreen> {
   + " and facilities like Laboratory available to make learning a better experience for student";
 
   var _coreCourses ="Integrated Science \n" +  "Mathematics \n" + "English \n" + "Social Studies";
-  var _electiveCourses = "Elective MatheMatics\n" + "Physics\n" + "Chemistry\n" + 
-  "Biology/ Geography/ ICT";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
