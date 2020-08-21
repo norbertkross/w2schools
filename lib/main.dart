@@ -51,9 +51,7 @@ final MaterialColor colorCustom = MaterialColor(0xffFCB30D, color);
       ),
       home: 
       // Put Your Entry Widget here
-      //TestButton()
-      HoldInitialPage(),   
-      //MainIntroScreen(),
+      TestButton()
     );
   }
 }
