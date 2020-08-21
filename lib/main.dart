@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:w2schools/Components/signinInputField.dart';
+import 'package:w2schools/Screens/SignIn/registerHomeScreen.dart';
+import 'package:w2schools/Screens/SignIn/signInHomeScreen.dart';
+import 'package:w2schools/Screens/TestButton/CreateAccount/accountCreated.dart';
+import 'package:w2schools/Screens/TestButton/CreateAccount/createAccount.dart';
 import 'package:w2schools/Screens/TestButton/TestButton.dart';
+import 'package:w2schools/Screens/courses/courseOne.dart';
 import 'package:w2schools/app_state/walkthroughState.dart';
+
+import 'Screens/courses/coursesHomeScreen.dart';
 
 void main() {
   runApp(
@@ -45,11 +53,11 @@ final MaterialColor colorCustom = MaterialColor(0xffFCB30D, color);
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: colorCustom,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        // visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: 
       // Put Your Entry Widget here
-      TestButton(),
+      CourseOneScreen()
     );
   }
 }
