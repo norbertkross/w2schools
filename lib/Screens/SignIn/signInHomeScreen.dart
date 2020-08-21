@@ -24,11 +24,6 @@ class _SignInHomeScreenState extends State<SignInHomeScreen> {
                   image: DecorationImage(
                       image: AssetImage('asset/Story.png'), fit: BoxFit.fill),
                 )
-                // child: Image(image: AssetImage('asset/Story.png')),
-                // child: ClipPath(
-                //   clipper: CustomRect(),
-                //   child: Image(image: AssetImage('asset/Story.png'),) ,
-                // ),
                 ),
           ),
           SizedBox(height: 30.0),
