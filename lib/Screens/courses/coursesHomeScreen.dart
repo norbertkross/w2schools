@@ -14,9 +14,12 @@ class CoursesHomeScreen extends StatefulWidget {
 
 class _CoursesHomeScreenState extends State<CoursesHomeScreen> {
   var _about = 
-  "This department is in charge of all science related courses.General Science, Agricultural "
+  "This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural "
   + "Science and Mixed-Electives option. The department makes all provisions in terms of books"
-  + " and facilities like Laboratory available to make learning a better experience for student";
+  + " and facilities like Laboratory available to make learning a better experience for student"
+  + " and facilities like Laboratory available to make learning a better experience for student"
+  + " and facilities like Laboratory available to make learning a better experience for student"
+  ;
 
   var _coreCourses ="Integrated Science \n" +  "Mathematics \n" + "English \n" + "Social Studies";
   @override

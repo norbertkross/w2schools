@@ -50,11 +50,17 @@ final MaterialColor colorCustom = MaterialColor(0xffFCB30D, color);
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: 
-      // Put Your Entry Widget here
-      TestButton()
+
+      HoldInitialPage()
+
     );
   }
 }
+
+
+
+
+
 
 
 

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:w2schools/Components/reUseButton.dart';
 import 'package:w2schools/Components/zigzagClipper.dart';
 
+import 'registerHomeScreen.dart';
+
 class SignInHomeScreen extends StatefulWidget {
   /// This class presents the user with a sign in option
   /// or register option
@@ -13,37 +15,48 @@ class _SignInHomeScreenState extends State<SignInHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          ClipPath(
-            clipper: SimpleClipper(),
-            child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.55,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('asset/Story.png'), fit: BoxFit.fill),
-                )
-                ),
-          ),
-          SizedBox(height: 30.0),
-          Center(
-              child: Column(
+      body: ListView(
+        children: [
+          Column(
             children: <Widget>[
-              Text(
-                "Please Sign In or Register",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26.0),
+              ClipPath(
+                clipper: SimpleClipper(),
+                child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.55,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('asset/Story.png'), fit: BoxFit.fill),
+                    )
+                    ),
               ),
-              SizedBox(
-                height: 20.0,
-              ),
-              ReUseButtonWithText(label: "Register", onTap: () {}),
-              SizedBox(height: 20.0),
-              ReUseButtonWithText(label: "Sign In", onTap: () {})
+              SizedBox(height: 30.0),
+              Center(
+                  child: Column(
+                children: <Widget>[
+                  Text(
+                    "Please Sign In or Register",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26.0),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  ReUseButtonWithText(label: "Register", onTap: (){
+                    navigateTOregister();
+                  }),
+                  SizedBox(height: 20.0),
+                  ReUseButtonWithText(label: "Sign In", onTap: () {})
+                ],
+              )),
+
+              SizedBox(height: 40,)
             ],
-          ))
+          ),
         ],
       ),
     );
+  }
+  void navigateTOregister(){
+    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>RegisterHomeScreen()));
   }
 }
