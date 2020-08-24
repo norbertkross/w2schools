@@ -25,7 +25,7 @@ class _CourseOneScreenState extends State<CourseOneScreen> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: SizeConfig.blockSizeVertical * 30,
-            child: Image(image: AssetImage('')),
+            child: Image(image: AssetImage('asset/Color-2.png')),
           ),
           Row(
             children: <Widget>[

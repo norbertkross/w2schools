@@ -12,12 +12,20 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Back",style: TextStyle(color: Colors.white),),
+        leading: IconButton(icon: 
+        Icon(Icons.chevron_left,color: Colors.white,),
+         onPressed: (){Navigator.pop(context);}),
+      ),
       body: Center(
         child: Container(
-          margin: EdgeInsets.only(top:90.0, left:10.0, right:10.0),
+          margin: EdgeInsets.only(top:0.0, left:10.0, right:10.0),
           padding: EdgeInsets.only(left: 15.0, right: 15.0,),
-          child: Column(
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+Column(
             children: <Widget>[
               Center(
                 child:Text(
@@ -56,7 +64,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 navigateToOnSuccessfulAccountCreatedScreen();
               })
             ],
-          )
+          ),              
+            ],
+          ),
         ),
       ),
     );
