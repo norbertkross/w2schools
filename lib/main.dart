@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-//import 'package:w2schools/Screens/TestButton/TestButton.dart';
-//import 'package:w2schools/Screens/notifications.dart';
-import 'package:w2schools/Screens/signInPage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:w2schools/Screens/WalkThroughScreenkross/IntroScreens.dart';
 import 'package:w2schools/app_state/walkthroughState.dart';
 //import 'package:w2schools/Screens/test.dart';
 
 
 void main() {
-  runApp(
-    MultiProvider(providers: [
-      ChangeNotifierProvider<WalkThroughState>(
-          create: (context) => WalkThroughState()),
+  runApp(    
+        MultiProvider(
+      
+      providers: [
 
-      // Put The New State Class you create
-      //  ChangeNotifierProvider<YourNewStateClass>(create: (context) =>  YourNewStateClass()),
-    ], child: MyApp()),
-  );
+        ChangeNotifierProvider<WalkThroughState>(create: (context) =>  WalkThroughState()),
+
+     // Put The New State Class you create
+    //  ChangeNotifierProvider<YourNewStateClass>(create: (context) =>  YourNewStateClass()),                
+    
+      ],
+    child: MyApp()),
+    );
 }
 
 class MyApp extends StatelessWidget {
@@ -39,15 +42,76 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'w2schools',
       theme: ThemeData(
         primarySwatch: colorCustom,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-//      home: NotificationPage(),
-      home: signInPage(),
-//    home: TestPage(),
-      // Put Your Entry Widget here
+
+      home: 
+
+      HoldInitialPage()
+
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+class HoldInitialPage extends StatefulWidget {
+  @override
+  _HoldInitialPageState createState() => _HoldInitialPageState();
+}
+
+class _HoldInitialPageState extends State<HoldInitialPage> {
+
+  getHasPassed()async{
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+   bool value = (prefs.getBool('finishedWalkthrough') ?? false);
+
+    if(value== false){
+      Navigator.of(context).push(MaterialPageRoute(builder: (_)=>MainIntroScreen()));
+    }else {
+      Navigator.of(context).push(MaterialPageRoute(builder: (_)=>
+                           
+                     // TODO replace this class with home screen
+                     Scaffold(
+                      body: Container(
+                        child: Center(child: Text("Login / Homepage"),),
+                      ),
+                      )
+                     //
+                      ));
+
+    }
+  }
+
+@override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) { 
+      getHasPassed();
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+          body: Container(
+         height: MediaQuery.of(context).size.height,
+         width: MediaQuery.of(context).size.width,
+         decoration: BoxDecoration(
+           image: DecorationImage(
+             fit: BoxFit.fill,
+             image: AssetImage("asset/w2splash.png")),
+         ), 
+      ),
     );
   }
 }
