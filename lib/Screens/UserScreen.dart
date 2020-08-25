@@ -21,93 +21,69 @@ class _UserScreenState extends State<UserScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(image: AssetImage("assets/dope.jpg")),
+            ),
+            height: 120,
+            width: 120,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text("Lee Quaye",
+              style: TextStyle(fontSize: 27.0, fontWeight: FontWeight.bold)),
+          SizedBox(
+            height: 5,
+          ),
+          Text("Sign Out",
+              style: TextStyle(
+                  fontSize: 20.0, color: Theme.of(context).primaryColor)),
+          Container(
+            margin: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: Color(0xff162975),
+                borderRadius: BorderRadius.circular(30)),
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                RoundText(_resultsSelected, "Results", () {
+                  setState(() {
+                    _resultsSelected = true;
+                    _profileSelected = false;
+                    _helpSelected = false;
 
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-            child: Icon(
-              Icons.settings,
-              size: 30,
+                    _selectedIndex = 0;
+                  });
+                }),
+                RoundText(_profileSelected, "Profile", () {
+                  setState(() {
+                    _resultsSelected = false;
+                    _profileSelected = true;
+                    _helpSelected = false;
+                    _selectedIndex = 1;
+                  });
+                }),
+                RoundText(_helpSelected, "Help", () {
+                  setState(() {
+                    _resultsSelected = false;
+                    _profileSelected = false;
+                    _helpSelected = true;
+                    _selectedIndex = 2;
+                  });
+                })
+              ],
             ),
           ),
+          _widgetOptions[_selectedIndex]
         ],
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: screenHeight,
-          width: screenWidth,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(height: 20),
-              Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(image: AssetImage("assets/dope.jpg")),
-                ),
-                height: 120,
-                width: 120,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text("Lee Quaye",
-                  style:
-                      TextStyle(fontSize: 27.0, fontWeight: FontWeight.bold)),
-              SizedBox(
-                height: 5,
-              ),
-              Text("Sign Out",
-                  style: TextStyle(
-                      fontSize: 20.0, color: Theme.of(context).primaryColor)),
-              Container(
-                margin: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    color: Color(0xff162975),
-                    borderRadius: BorderRadius.circular(30)),
-                height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    RoundText(_resultsSelected, "Results", () {
-                      setState(() {
-                        _resultsSelected = true;
-                        _profileSelected = false;
-                        _helpSelected = false;
-
-                        _selectedIndex = 0;
-                      });
-                    }),
-                    RoundText(_profileSelected, "Profile", () {
-                      setState(() {
-                        _resultsSelected = false;
-                        _profileSelected = true;
-                        _helpSelected = false;
-                        _selectedIndex = 1;
-                      });
-                    }),
-                    RoundText(_helpSelected, "Help", () {
-                      setState(() {
-                        _resultsSelected = false;
-                        _profileSelected = false;
-                        _helpSelected = true;
-                        _selectedIndex = 2;
-                      });
-                    })
-                  ],
-                ),
-              ),
-              _widgetOptions[_selectedIndex]
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -123,33 +99,34 @@ class _ResultsWidgetState extends State<ResultsWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(20),
-        margin: EdgeInsets.symmetric(horizontal: 20),
-        decoration: BoxDecoration(
-          // shape: BoxShape.circle,
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        height: 350,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            subjectProgressIndicator("Core Maths", 0.4),
-            subjectProgressIndicator("Science", 0.6),
-            subjectProgressIndicator("Physics", 0.22),
-            subjectProgressIndicator("Chemistry", 0.05),
-            subjectProgressIndicator("English", 0.67),
-            subjectProgressIndicator("Social Studies", 0.36)
-          ],
-        ));
+      padding: EdgeInsets.all(20),
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      height: 350,
+      child: SingleChildScrollView(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          subjectProgressIndicator("Core Maths", 0.4),
+          subjectProgressIndicator("Science", 0.6),
+          subjectProgressIndicator("Physics", 0.22),
+          subjectProgressIndicator("Chemistry", 0.05),
+          subjectProgressIndicator("English", 0.67),
+          subjectProgressIndicator("Social Studies", 0.36)
+        ],
+      )),
+    );
   }
 
   Widget subjectProgressIndicator(String subject, double percent) {
@@ -196,21 +173,21 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
-        margin: EdgeInsets.symmetric(horizontal: 20),
-        decoration: BoxDecoration(
-          // shape: BoxShape.circle,
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        height: 350,
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      height: 350,
+      child: SingleChildScrollView(
         child: Column(
           children: [
             Container(
@@ -305,7 +282,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   )),
             )
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
 
@@ -324,7 +303,6 @@ class _HelpWidgetState extends State<HelpWidget> {
         padding: EdgeInsets.all(20),
         margin: EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
-          // shape: BoxShape.circle,
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
@@ -338,7 +316,7 @@ class _HelpWidgetState extends State<HelpWidget> {
         ),
         height: 370,
         child: SingleChildScrollView(
-                  child: Column(
+          child: Column(
             children: [
               Image.asset(
                 "assets/help-button.png",
