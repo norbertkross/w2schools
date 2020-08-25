@@ -10,8 +10,8 @@ class ReUseButtonWithText extends StatefulWidget {
   final bool isIndigo;
 
   ReUseButtonWithText({
-    @required this.label,
-    @required this.onTap,
+     this.label,
+     this.onTap,
     this.isIndigo
   });
 
@@ -42,8 +42,8 @@ class ReUseButtonWithTextAndArrow extends StatefulWidget {
   final bool isIndigo;
 
   ReUseButtonWithTextAndArrow({
-    @required this.label,
-    @required this.onTap,
+     this.label,
+     this.onTap,
     this.isIndigo
   });
 
