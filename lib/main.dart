@@ -47,7 +47,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: colorCustom,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-
       home: 
 
       HoldInitialPage()
