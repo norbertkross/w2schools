@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:w2schools/Components/ReadCourseCard.dart';
 import 'package:w2schools/Components/SubjectCard.dart';
-import 'package:w2schools/Components/TopNavbar.dart';
 
 // dashboard
 class Dashboard extends StatefulWidget {
@@ -18,7 +17,6 @@ class _DashboardState extends State<Dashboard> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TopNavbar(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Text("My Dashboard",

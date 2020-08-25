@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:w2schools/Components/CourseCard.dart';
-import 'package:w2schools/Components/TopNavbar.dart';
 
 // courses widget
 class Courses extends StatefulWidget {
@@ -15,7 +14,6 @@ class _CoursesState extends State<Courses> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TopNavbar(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Text("Welcome Lee",
