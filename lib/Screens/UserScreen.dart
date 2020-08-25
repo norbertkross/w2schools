@@ -13,7 +13,11 @@ class _UserScreenState extends State<UserScreen> {
 
   int _selectedIndex = 0;
 
-  List<Widget> _widgetOptions = <Widget>[ResultsWidget(), ProfileWidget()];
+  List<Widget> _widgetOptions = <Widget>[
+    ResultsWidget(),
+    ProfileWidget(),
+    HelpWidget()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -301,6 +305,76 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   )),
             )
           ],
+        ));
+  }
+}
+
+// helpWidget
+class HelpWidget extends StatefulWidget {
+  @override
+  _HelpWidgetState createState() => _HelpWidgetState();
+}
+
+class _HelpWidgetState extends State<HelpWidget> {
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    return Container(
+        padding: EdgeInsets.all(20),
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          // shape: BoxShape.circle,
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.3),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
+        height: 370,
+        child: SingleChildScrollView(
+                  child: Column(
+            children: [
+              Image.asset(
+                "assets/help-button.png",
+                height: 100,
+                width: 100,
+              ),
+              Text("Chat with Teacher",
+                  style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).primaryColor)),
+              SizedBox(
+                height: 10,
+              ),
+              Text("0247205609",
+                  style: TextStyle(fontSize: 17.0, color: Color(0xff162975))),
+              Divider(
+                color: Color(0xff162975),
+              ),
+              Image.asset(
+                "assets/help-button.png",
+                height: 100,
+                width: 100,
+              ),
+              Text("Help Line",
+                  style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).primaryColor)),
+              SizedBox(
+                height: 10,
+              ),
+              Text("0247205609",
+                  style: TextStyle(fontSize: 17.0, color: Color(0xff162975))),
+            ],
+          ),
         ));
   }
 }
