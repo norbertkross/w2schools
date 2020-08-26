@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:w2schools/Components/reUseButton.dart';
 import 'package:w2schools/Components/zigzagClipper.dart';
 
+import '../signInPage.dart';
 import 'registerHomeScreen.dart';
 
 class SignInHomeScreen extends StatefulWidget {
@@ -45,7 +46,7 @@ class _SignInHomeScreenState extends State<SignInHomeScreen> {
                     navigateTOregister();
                   }),
                   SizedBox(height: 20.0),
-                  ReUseButtonWithText(label: "Sign In", onTap: () {})
+                  ReUseButtonWithText(label: "Sign In", onTap: () {navigateTOsignIn();})
                 ],
               )),
 
@@ -56,7 +57,14 @@ class _SignInHomeScreenState extends State<SignInHomeScreen> {
       ),
     );
   }
+  
+  // Navigate to Register Page
   void navigateTOregister(){
     Navigator.of(context).push(MaterialPageRoute(builder: (_)=>RegisterHomeScreen()));
+  }
+
+  // Navigate to SignIn Page
+  void navigateTOsignIn(){
+    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>SignInPage()));
   }
 }

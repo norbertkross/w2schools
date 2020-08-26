@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:w2schools/Components/reUseButton.dart';
+import 'package:w2schools/Screens/courses/courseOne.dart';
 
 
 class CoursesHomeScreen extends StatefulWidget {
@@ -12,9 +13,8 @@ class CoursesHomeScreen extends StatefulWidget {
 
 class _CoursesHomeScreenState extends State<CoursesHomeScreen> {
   var _about = 
-  "This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural This department is in charge of all science related courses.General Science, Agricultural "
-  + "Science and Mixed-Electives option. The department makes all provisions in terms of books"
-  + " and facilities like Laboratory available to make learning a better experience for student"
+  "Agricultural This department is in charge of all science related courses.General Science, Agricultural "
+  + "Science and Mixed-Electives option. The department makes all provisions in terms of books"  
   + " and facilities like Laboratory available to make learning a better experience for student"
   + " and facilities like Laboratory available to make learning a better experience for student"
   ;
@@ -42,7 +42,9 @@ class _CoursesHomeScreenState extends State<CoursesHomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             FlatButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
                 icon: Icon(
                   Icons.arrow_back,
                   color: Colors.white,),
@@ -185,7 +187,8 @@ class _CoursesHomeScreenState extends State<CoursesHomeScreen> {
                 SizedBox(height: 15.0,),
                 Padding(
                   padding: EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10.0),
-                  child: ReUseButtonWithTextAndArrow(label: "Start", onTap: (){}))
+                  child: ReUseButtonWithTextAndArrow(label: "Start", onTap: (){navigateTOhomepage();})),
+                  SizedBox(height: 30.0,),
           ],
         ),
       ),   
@@ -195,4 +198,10 @@ class _CoursesHomeScreenState extends State<CoursesHomeScreen> {
         ),
     );
   }
+
+  // Navigate to Course one Page
+  void navigateTOhomepage(){
+    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>CourseOneScreen()));
+  }
+
 }

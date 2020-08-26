@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:w2schools/Components/reUseButton.dart';
+import 'package:w2schools/Screens/SignIn/registerHomeScreen.dart';
+import 'package:w2schools/Screens/SignIn/signInHomeScreen.dart';
 import 'package:w2schools/app_state/walkthroughState.dart';
 
 class MainIntroScreen extends StatefulWidget {
@@ -23,7 +25,7 @@ class _MainIntroScreenState extends State<MainIntroScreen> {
 
 @override
   void initState(){
-    Timer.periodic(Duration(seconds: 2), (_){
+    Timer.periodic(Duration(seconds: 1), (_){
       if(currentIndex <=2){
     _pageController.animateToPage(currentIndex, duration: Duration(seconds: 1),curve: Curves.easeIn);
         currentIndex++;
@@ -167,16 +169,13 @@ class _MainIntroScreenState extends State<MainIntroScreen> {
                      
                      // Move to home Screen
                      // set a preference that the user has passed here so that the next time they do not see this screen
-                     walkThroughState.setPrefs(true);
+
+                     // TODO Uncomment this
+                     //walkThroughState.setPrefs(true);
                      Navigator.of(context).push(MaterialPageRoute(builder: (_)=>
                      
                      // TODO replace this class with home screen
-                     Scaffold(
-                      body: Container(
-                        child: Center(child: Text("Login / Homepage"),),
-                      ),
-                      )
-                     // 
+                      SignInHomeScreen()
                 ));
                    }),
 

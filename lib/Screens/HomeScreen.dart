@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:w2schools/Components/Courses.dart';
 import 'package:w2schools/Components/Dashboard.dart';
+import 'package:w2schools/Components/TheColors.dart';
+import 'package:w2schools/Components/constants.dart';
 import 'package:w2schools/Screens/UserScreen.dart';
+
+import 'notifications.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,16 +17,29 @@ class _HomeScreenState extends State<HomeScreen> {
   // bottom navigation bar index for widget to display
   int _bottomNavIndex = 0;
 
-  List<Widget> _widgetOptions = <Widget>[Dashboard(), Courses(), UserScreen()];
+  List<Widget> _widgetOptions = <Widget>[
+    Dashboard(), 
+    Courses(), 
+    UserScreen(), 
+    NotificationPage()];
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: _bottomNavIndex == 3? 
+      AppBar(
+        leading: Container(),
+        title: Text("Notifications",style: kNotificationTitleStyle,),
+        centerTitle: true,
+        ):
+       PreferredSize(preferredSize: Size(MediaQuery.of(context).size.width, 0.01),
+      child: Container(),),
       key: _scaffoldKey,
       drawer: Drawer(
         child: ListView(
+          padding: EdgeInsets.all(0),
           children: <Widget>[
             Container(
               height: screenHeight / 4.5,
@@ -31,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(height: 10),
+                  SizedBox(height: 30),
                   DecoratedBox(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -45,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 35),
+                            fontSize: 24),
                       ),
                     ),
                   ),
@@ -71,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Profile",
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: 22,
+                      fontSize: 20,
                       color: Theme.of(context).primaryColor),
                 ),
                 onTap: () {}),
@@ -85,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Results",
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: 22,
+                      fontSize: 20,
                       color: Theme.of(context).primaryColor),
                 ),
                 onTap: () {}),
@@ -99,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Settings",
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: 22,
+                      fontSize: 20,
                       color: Theme.of(context).primaryColor),
                 ),
                 onTap: () {}),
@@ -113,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Help",
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: 22,
+                      fontSize: 20,
                       color: Theme.of(context).primaryColor),
                 ),
                 onTap: () {}),
@@ -127,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Report",
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: 22,
+                      fontSize: 20,
                       color: Theme.of(context).primaryColor),
                 ),
                 onTap: () {}),
@@ -156,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   : _bottomNavIndex == 2
                       ? _settingsIcon()
                       : SizedBox(
-                          height: 0,
+                          height: 1,
                         ),
               // changes content based on current bottom navigation selected
               _widgetOptions[_bottomNavIndex],
@@ -164,40 +181,37 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 5,
-        child: BottomNavigationBar(
-            currentIndex: _bottomNavIndex,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            selectedItemColor: Colors.red,
-            onTap: _onItemTapped,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.home, color: Theme.of(context).primaryColor),
-                  title: Text(
-                    "",
-                  )),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.dashboard,
-                      color: Theme.of(context).primaryColor),
-                  title: Text(
-                    "",
-                  )),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle,
-                      color: Theme.of(context).primaryColor),
-                  title: Text(
-                    "",
-                  )),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.notifications_none,
-                      color: Theme.of(context).primaryColor),
-                  title: Text(
-                    "",
-                  )),
-            ]),
-      ),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _bottomNavIndex,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          selectedItemColor: Colors.red,
+          onTap: _onItemTapped,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home, color: _bottomNavIndex == 0? TheColors.yellowOrange: Colors.black45),
+                title: Text(
+                  "",
+                )),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.dashboard,
+                    color:  _bottomNavIndex == 1? TheColors.yellowOrange: Colors.black45),
+                title: Text(
+                  "",
+                )),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle,
+                    color:  _bottomNavIndex == 2? TheColors.yellowOrange: Colors.black45),
+                title: Text(
+                  "",
+                )),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.notifications_none,
+                    color:  _bottomNavIndex == 3? TheColors.yellowOrange: Colors.black45),
+                title: Text(
+                  "",
+                )),
+          ]),
     );
   }
 
