@@ -2,6 +2,7 @@
 
 A new Flutter project.
 
+## [w2schools/android/key.properties](w2schools/android/key.properties) is a keystore file that need on your system to build the apk. ask developer for details and password
 
 # The Rules Of The Master (Branch)
 

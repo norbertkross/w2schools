@@ -22,17 +22,6 @@ const timeColor = const Color(0xFFBDBDBD);
 
 const notificationLineDividerColor = const Color(0xFFA1A1A1);
 
-//const kDigitStyle = TextStyle(
-//  fontSize:50.0 ,
-//  fontWeight:FontWeight.w500,
-//  color: digitColor,
-//);
-//const kDigitTextStyle = TextStyle(
-//  fontSize: 15.0,
-//  fontWeight: FontWeight.w500,
-//  color: digitTextColor,
-//);
-
 const kDefaultCardBorderColor = const Color(0xFFFFFFFF);
 
 const kButtonColor = const Color(0xFF162975);
@@ -42,8 +31,8 @@ const kButtonColor = const Color(0xFF162975);
 const KNotificationAppBarColor = const Color(0xFFF5A623);
 
 const kNotificationTitleStyle = TextStyle(
-  fontSize: 30,
-  fontWeight: FontWeight.w800,
+  fontSize: 24,
+  fontWeight: FontWeight.w700,
   color: Colors.white,
   letterSpacing: 1.0,
 );

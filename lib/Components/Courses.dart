@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:w2schools/Components/CourseCard.dart';
+import 'package:w2schools/Screens/courses/coursesHomeScreen.dart';
+import 'package:w2schools/Screens/test.dart';
 
 // courses widget
 class Courses extends StatefulWidget {
@@ -30,12 +32,34 @@ class _CoursesState extends State<Courses> {
         SizedBox(
           height: 5,
         ),
-        CourseCard("assets/026-history.png", "Business"),
-        CourseCard("assets/049-psychology.png", "General Arts"),
-        CourseCard("assets/011-chemistry.png", "Science"),
-        CourseCard("assets/053-school.png", "Home Economics"),
-        CourseCard("assets/041-paintbrush.png", "Visual Arts")
+        
+        GestureDetector(
+          onTap: (){navigateTOCourseHome();},
+          child: CourseCard("assets/026-history.png", "Business"),
+        ),
+        GestureDetector(
+          onTap: (){navigateTOCourseHome();},
+          child:CourseCard("assets/049-psychology.png", "General Arts"),
+        ),
+        GestureDetector(
+          onTap: (){navigateTOCourseHome();},
+          child: CourseCard("assets/011-chemistry.png", "Science"),
+        ),
+        GestureDetector(
+          onTap: (){navigateTOCourseHome();},
+          child: CourseCard("assets/053-school.png", "Home Economics"),
+        ),
+        GestureDetector(
+          onTap: (){navigateTOCourseHome();},
+          child: CourseCard("assets/041-paintbrush.png", "Visual Arts"),
+        ),                           
       ],
     );
   }
+
+  // Navigate to Course Home
+  void navigateTOCourseHome(){
+    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>CoursesHomeScreen()));
+  }
+
 }

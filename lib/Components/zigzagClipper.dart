@@ -16,7 +16,7 @@ class SimpleClipper extends CustomClipper<Path> {
       curYPos = curYPos == size.height ? size.height - 30 : size.height;
       path.lineTo(curXPos, curYPos);
     }
-    print(size.width);
+    // print(size.width);
     path.lineTo(size.width, 0);
     return path;
   }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:w2schools/Screens/HomeScreen.dart';
 import 'package:w2schools/Screens/WalkThroughScreenkross/IntroScreens.dart';
 import 'package:w2schools/app_state/walkthroughState.dart';
+
+import 'Screens/SignIn/signInHomeScreen.dart';
 //import 'package:w2schools/Screens/test.dart';
 
 
@@ -48,8 +51,10 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: 
-
-      HoldInitialPage()
+      //SignInHomeScreen()
+      //HomeScreen()
+      HoldInitialPage(),
+      //HoldInitialPage()
 
     );
   }
@@ -72,7 +77,8 @@ class _HoldInitialPageState extends State<HoldInitialPage> {
 
   getHasPassed()async{
   SharedPreferences prefs = await SharedPreferences.getInstance();
-   bool value = (prefs.getBool('finishedWalkthrough') ?? false);
+   bool value = false;
+   value = (prefs.getBool('finishedWalkthrough') ?? false);
 
     if(value== false){
       Navigator.of(context).push(MaterialPageRoute(builder: (_)=>MainIntroScreen()));
@@ -94,6 +100,8 @@ class _HoldInitialPageState extends State<HoldInitialPage> {
 @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) { 
+
+      // TODO UnComment This to enable skip walkthrough
       getHasPassed();
     });
     super.initState();

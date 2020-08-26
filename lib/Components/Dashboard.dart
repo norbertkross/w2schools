@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:w2schools/Components/ReadCourseCard.dart';
 import 'package:w2schools/Components/SubjectCard.dart';
+import 'package:w2schools/Screens/test.dart';
 
 // dashboard
 class Dashboard extends StatefulWidget {
@@ -78,22 +79,39 @@ class _DashboardState extends State<Dashboard> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      SubjectCard("assets/027-language.png", "Core Maths"),
-                      SubjectCard("assets/045-physics.png", "Science"),
-                      SubjectCard("assets/040-open-book.png", "English"),
+                      GestureDetector(
+                        onTap: (){navigateTOhomepage();},
+                        child: SubjectCard("assets/027-language.png", "Core Maths")),
+                      GestureDetector(
+                        onTap: (){navigateTOhomepage();},
+                        child: SubjectCard("assets/045-physics.png", "Science")),
+                      GestureDetector(
+                        onTap: (){navigateTOhomepage();},
+                        child: SubjectCard("assets/040-open-book.png", "English")),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      SubjectCard("assets/016-document.png", "Social Studies"),
-                      SubjectCard("assets/019-eyeglass.png", "Physics"),
-                      SubjectCard("assets/011-chemistry.png", "Chemistry"),
+                      GestureDetector(
+                        onTap: (){navigateTOhomepage();},                        
+                        child: SubjectCard("assets/016-document.png", "Social Studies")),
+                      GestureDetector(
+                        onTap: (){navigateTOhomepage();},
+                        child: SubjectCard("assets/019-eyeglass.png", "Physics")),
+                      GestureDetector(
+                        onTap: (){navigateTOhomepage();},
+                        child: SubjectCard("assets/011-chemistry.png", "Chemistry")),
                     ],
                   ),
                 ],
               ))
         ]);
+  }
+
+  // Navigate to Test Page
+  void navigateTOhomepage(){
+    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>TestPage()));
   }
 
   // populate ReadCourseCard with course details

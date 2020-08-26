@@ -28,10 +28,13 @@ class _TestPageState extends State<TestPage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: Icon(
-          Icons.clear,
-          color: KIconColor,
-          size: 30,
+        leading: GestureDetector(
+          onTap: ()=> Navigator.of(context).pop(),
+          child: Icon(
+            Icons.clear,
+            color: KIconColor,
+            size: 30,
+          ),
         ),
       ),
       body: SafeArea(
