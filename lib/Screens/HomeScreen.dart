@@ -3,12 +3,12 @@ import 'package:w2schools/Components/Courses.dart';
 import 'package:w2schools/Components/Dashboard.dart';
 import 'package:w2schools/Screens/UserScreen.dart';
 
-class DashboardScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _DashboardScreenState createState() => _DashboardScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   // bottom navigation bar index for widget to display
   int _bottomNavIndex = 0;
 
