@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:w2schools/Screens/dashboard_screen.dart';
+import 'package:w2schools/Screens/HomeScreen.dart';
 import 'package:w2schools/app_state/walkthroughState.dart';
 
 void main() {
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       ),
       home:
           // Put Your Entry Widget here
-          DashboardScreen(),
+          HomeScreen(),
     );
   }
 }
