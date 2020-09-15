@@ -54,3 +54,15 @@ const kMessageTimeTextStyle= TextStyle(
   fontWeight: FontWeight.w700,
   color: timeColor,
 );
+
+
+//QUIZ SUCCESS PAGE CONSTANTS
+const kButtonTextStyle= TextStyle(
+  fontSize: 13,
+  fontWeight: FontWeight.w700,
+  color: KNotificationAppBarColor,
+);
+const kQuizSuccessPageBGColor = const Color(0xFF162975);
+const kQuizButtonColor = const Color(0xFFF5A623);
+
+const kScores =  const Color(0xFFF5A623);

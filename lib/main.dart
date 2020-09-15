@@ -4,7 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:w2schools/Screens/HomeScreen.dart';
 import 'package:w2schools/Screens/WalkThroughScreenkross/IntroScreens.dart';
 import 'package:w2schools/app_state/walkthroughState.dart';
-
+//import 'package:w2schools/Screens/QuizSuccessScreen.dart';
+//import 'package:w2schools/Screens/PasswordResetScreen.dart';
 import 'Screens/SignIn/signInHomeScreen.dart';
 //import 'package:w2schools/Screens/test.dart';
 
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
       //SignInHomeScreen()
       //HomeScreen()
       HoldInitialPage(),
+
       //HoldInitialPage()
 
     );

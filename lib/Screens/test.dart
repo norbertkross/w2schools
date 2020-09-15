@@ -11,8 +11,6 @@ enum Cards {
   cardFour,
 }
 
-//Color colorToBeUsed;
-
 class TestPage extends StatefulWidget {
   @override
   _TestPageState createState() => _TestPageState();
