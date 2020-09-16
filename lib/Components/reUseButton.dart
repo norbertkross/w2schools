@@ -23,12 +23,20 @@ class _ReUseButtonWithTextState extends State<ReUseButtonWithText> {
   @override
   Widget build(BuildContext context) {
     
-    return CupertinoButton(
-      borderRadius: BorderRadius.circular(30),
-        color: widget.isIndigo != null && widget.isIndigo == true? TheColors.indigo : TheColors.yellowOrange,
-        child: Text("          "+widget.label+"          ",style: 
-        TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-         onPressed:widget.onTap);
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        children: [
+          CupertinoButton(
+            borderRadius: BorderRadius.circular(30),
+              color: widget.isIndigo != null && widget.isIndigo == true? TheColors.indigo : TheColors.yellowOrange,
+              child: Text("          "+widget.label+"          ",style: 
+              TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+               onPressed:widget.onTap),
+        ],
+      ),
+    );
   }
 }
 
@@ -55,18 +63,26 @@ class _ReUseButtonWithTextAndArrowState extends State<ReUseButtonWithTextAndArro
   @override
   Widget build(BuildContext context) {
     
-    return CupertinoButton(
-      borderRadius: BorderRadius.circular(30),
-        color: widget.isIndigo != null && widget.isIndigo == true? TheColors.indigo : TheColors.yellowOrange,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text("          "+widget.label+"          ",style: 
-            TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        children: [
+          CupertinoButton(
+            borderRadius: BorderRadius.circular(30),
+              color: widget.isIndigo != null && widget.isIndigo == true? TheColors.indigo : TheColors.yellowOrange,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("          "+widget.label+"          ",style: 
+                  TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
 
-            Icon(Icons.chevron_right,color: Colors.white,)
-          ],
-        ),
-         onPressed:widget.onTap);
+                  Icon(Icons.chevron_right,color: Colors.white,)
+                ],
+              ),
+               onPressed:widget.onTap),
+        ],
+      ),
+    );
   }
 }
