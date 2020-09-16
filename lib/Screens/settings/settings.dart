@@ -7,6 +7,9 @@ class SettingsUser extends StatefulWidget {
 }
 
 class _SettingsUserState extends State<SettingsUser> {
+  bool switch1 = false;
+  bool switch2 = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +37,11 @@ class _SettingsUserState extends State<SettingsUser> {
                       height: 120,
                       width: 120,
                       decoration: BoxDecoration(
-                        color: TheColors.indigo,
+                        // color: TheColors.indigo,
                         shape:BoxShape.circle,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/dope.jpg"))
                       ),
                       //child: ,
                   ),
@@ -81,30 +87,44 @@ class _SettingsUserState extends State<SettingsUser> {
                       child:Column(
                         children: [
                            
-                           buildRow(name: "My Account"),
+                           buildRow(name: "My Account",image: "assets/Group 282@3x.png"),
                            Padding(
                              padding: const EdgeInsets.symmetric(horizontal:8.0),
                              child: Divider(
                                thickness: 2,
                              ),
                            ),
-                           buildRow(name: "Password Reset"),
-                           buildSwitch(text: "Push Notifications"),
-                           buildSwitch(text: "Email Notifications"),
+                           buildRow(name: "Password Reset",image: "assets/Group 285@3x.png"),
+                           buildSwitch(text: "Push Notifications",
+                           switchValue: switch1,
+                           onSwitch: (){
+                             setState(() {
+                               print("hello");
+                               switch1 = ! switch1;
+                             });
+                           }),
+                           buildSwitch(text: "Email Notifications",
+                           switchValue: switch2,
+                           onSwitch: (){
+                             setState(() {
+                               print("hello");
+                               switch2 = ! switch2;
+                             });
+                           }),
                            Padding(
                              padding: const EdgeInsets.symmetric(horizontal:8.0),
                              child: Divider(
                                thickness: 2,
                              ),
                            ),                           
-                           buildRow(name: "Security"),
+                           buildRow(name: "Security",image: "assets/Group 284@3x.png"),
                            Padding(
                              padding: const EdgeInsets.symmetric(horizontal:8.0),
                              child: Divider(
                                thickness: 2,
                              ),
                            ),                           
-                           buildRow(name: "Log out"),
+                           buildRow(name: "Log out",image: "assets/Group 283@3x.png"),
                            SizedBox(height: 20,) 
                         ],),
                     ),
@@ -116,7 +136,7 @@ class _SettingsUserState extends State<SettingsUser> {
           );
   }
 
-  Widget buildRow({String image,String name, IconData icon}){
+  Widget buildRow({String image,String name, IconData icon,}){
     return Container(
       child: Column(
         children: [
@@ -134,7 +154,8 @@ class _SettingsUserState extends State<SettingsUser> {
                       child: Container(
                         height: 50,
                         width: 50,
-                        color: Colors.red,
+                        child: Center(
+                          child: Image.asset(image),),
                       ),
                     ),
                   ),
@@ -149,7 +170,26 @@ class _SettingsUserState extends State<SettingsUser> {
                       child: Container(
                         height: 50,
                         width: 50,
-                        child: Icon(Icons.arrow_forward,size: 15,color: Theme.of(context).unselectedWidgetColor,),
+                        child: Center(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Container(
+                              color: Theme.of(context).unselectedWidgetColor,
+                              child: Padding(
+                                padding: const EdgeInsets.all(2.5),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(.0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Container(
+                                      color: Colors.white,
+                                      child: Icon(Icons.arrow_forward,size: 15,color: Theme.of(context).unselectedWidgetColor,)),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -162,7 +202,7 @@ class _SettingsUserState extends State<SettingsUser> {
     );
   }
 
-  Widget buildSwitch({String text,String image}){
+  Widget buildSwitch({String text,String image,bool switchValue,Function onSwitch}){
       return Container(
       child: Column(
         children: [
@@ -178,22 +218,79 @@ class _SettingsUserState extends State<SettingsUser> {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 18),
                     child: Text(" "+text,style: TextStyle(fontSize: 19,fontWeight: FontWeight.w500),),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10), 
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        child: Icon(Icons.arrow_forward_outlined,size: 15,color: Theme.of(context).unselectedWidgetColor,),
-                      ),
-                    ),
+                  animatedSwitch(
+                    value: switchValue,
+                    onSwitch:onSwitch,
                   ),
                 ],
               ),
             ),
           )
         ],
+      ),
+    );
+  }
+
+
+
+  Widget animatedSwitch({bool value,Function onSwitch}){
+    return GestureDetector(
+      onTap:onSwitch,
+      child: Padding(
+        padding: const EdgeInsets.only(right: 20),
+        child: Container(
+          child: Stack(
+            children: [
+               Container(
+              height: 80,
+              width: 45,
+              child: Stack(
+                children: [
+                Center(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      height: 5,
+                      width: 45,
+                      color: value == true? Theme.of(context).accentColor: Theme.of(context).unselectedWidgetColor,
+                    ),
+                  ),
+                ),              
+                  Row(
+                    mainAxisAlignment:value == true? MainAxisAlignment.end : MainAxisAlignment.start,
+                    children: [
+                      AnimatedContainer(
+                        duration: Duration(milliseconds: 200),
+                        child: Center(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Container(
+                              color:value == true? Theme.of(context).accentColor: Theme.of(context).unselectedWidgetColor,
+                              child: Padding(
+                                padding: const EdgeInsets.all(2.5),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(.0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Container(
+                                      color: Theme.of(context).canvasColor,
+                                      child: SizedBox(width: 15,height: 15,),
+                                      // child: Icon(Icons.arrow_forward,size: 15,color: Theme.of(context).unselectedWidgetColor,)
+                                      ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            ],),
+        ),
       ),
     );
   }
