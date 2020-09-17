@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.all(0),
           children: <Widget>[
             Container(
-              height: screenHeight / 4.5,
+              height: screenHeight / 4.0,
               color: Theme.of(context).primaryColor,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
