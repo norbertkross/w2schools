@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:w2schools/Screens/ForgotPassword/ModeSelection.dart';
 
 import '../Components/TheColors.dart';
 import 'HomeScreen.dart';
@@ -22,11 +23,19 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomPadding: false,
         backgroundColor: KScaffoldColor,
         appBar: AppBar(
-          leading: IconButton(icon: Icon(Icons.chevron_left,color: Colors.white,size: 35,),
-          onPressed: (){Navigator.pop(context);},),
+          leading: IconButton(
+            icon: Icon(
+              Icons.chevron_left,
+              color: Colors.white,
+              size: 35,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
           backgroundColor: TheColors.yellowOrange,
           title: new Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -48,8 +57,6 @@ class _SignInPageState extends State<SignInPage> {
               // ),
             ],
           ),
-
-
         ),
         body: ListView(
           children: [
@@ -138,9 +145,10 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: (){
-                          print("Navigate to gome ...");
-                          navigateTOhomepage();},                      
+                    onTap: () {
+                      print("Navigate to gome ...");
+                      navigateTOhomepage();
+                    },
                     child: Container(
                       height: 60.0,
                       child: Material(
@@ -148,19 +156,26 @@ class _SignInPageState extends State<SignInPage> {
                         shadowColor: Colors.greenAccent,
                         color: TheColors.yellowOrange,
                         elevation: 3.0,
-                        child:  Center(
-                            child: Text(
-                              'Sign In',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
-                            ),
+                        child: Center(
+                          child: Text(
+                            'Sign In',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
                           ),
+                        ),
                       ),
                     ),
                   ),
-                  SizedBox(height:60)
+                  SizedBox(height: 40),
+                  GestureDetector(onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => ModeSelection()));
+                  },
+                      child: Text(
+                    "Forgot password?",
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  ),)
                 ],
               ),
             ),
@@ -168,12 +183,8 @@ class _SignInPageState extends State<SignInPage> {
         ));
   }
 
-
-  
-
-  
   // Navigate to HomePage after Sign In
-  void navigateTOhomepage(){
-    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>HomeScreen()));
+  void navigateTOhomepage() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
   }
 }
