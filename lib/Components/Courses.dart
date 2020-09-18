@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:w2schools/Components/CourseCard.dart';
 import 'package:w2schools/Screens/courses/coursesHomeScreen.dart';
-import 'package:w2schools/Screens/test.dart';
 
 // courses widget
 class Courses extends StatefulWidget {
